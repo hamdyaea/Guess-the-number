@@ -2,7 +2,8 @@
 
 ## What's this game ?  
 
-Guess the number is writed in Python 3. You have to guess the number that your computer choose between 1 and 20. It will tell you if it's too big or too small untill you win.
+Guess the number is writed in Python 3. You have to guess the number that your computer choose between 1 and 20.    
+It will tell you if it's too big or too small untill you win.
 
 
 ![Screenshot](screenshot.png)
