@@ -5,14 +5,15 @@ import sys
 from random import randint
 
 fieldValues = []
-
+tentative = 0
 def begin():
     message = "Try to guess the number. \nEnter a number between 1 and 20)"
     title = "Guess The Number"
     fieldNames = ["1"]
 
-
     fieldValues = enterbox(message,title, fieldNames)
+    global tentative
+    tentative = tentative + 1
 
     if int(fieldValues) > takeOne :
         big()
@@ -48,7 +49,7 @@ def big():
 
 def win():
     image = "./images/win.gif"
-    message = "Congratulation, you have found the right number ! \n\n The right number was " +str(takeOne)
+    message = "Congratulation, you have found the right number ! \n\n The right number was " +str(takeOne)+str("\n\n You win after ") +str(tentative) +str(" attempt")
     msgCenter = message.center(80)
     choices = ["Quit"]
     reply = buttonbox(msg=msgCenter,image=image, choices=choices)
@@ -59,4 +60,5 @@ def win():
 
 
 takeOne =(randint(1, 20))
+
 begin()
