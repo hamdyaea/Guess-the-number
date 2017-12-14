@@ -7,7 +7,7 @@ from random import randint
 fieldValues = []
 tentative = 0
 def begin():
-    message = "Try to guess the number. \nEnter a number between 1 and 20)"
+    message = "Try to guess the number. \nEnter a number between 1 and 20"
     title = "Guess The Number"
     fieldNames = ["1"]
 
