@@ -1,36 +1,21 @@
-# Guess The Number
+# Guess the Number
 
-## What's this game ?  
+A modern number guessing game with hints and replay.
 
-Guess the number is writed in Python 3. You have to guess the number that your computer choose between 1 and 20.    
-It will tell you if it's too big or too small untill you win.
+Developer: **Hamdy Abou El Anein**  
+Contact: **info@daylightlinux.ch**  
+License: GNU GPL v3 (see LICENSE).
 
+## Features
 
-![Screenshot](screenshot.png)
+- Lightweight Python 3 + Tkinter GUI; no EasyGUI dependency.
+- Input validation and testable functions.
+- Original source preserved on the [old branch](https://github.com/hamdyaea/Guess-the-number/tree/old).
 
+## Run
 
+    python3 GuessTheNumber.py
 
+## Tests
 
-## What you need to make it work :
-
-This game is made for Python 3.  
-
-Install all the packages for : Python 3.  
-
-easygui at least version 0.98  
-
-```sh
-sudo python3 -m pip install --upgrade easygui  
-```  
-
-## How to launch the game :
-
-```sh
-python3 GuessTheNumber.py
-```
-
-
-## Developer - Author
-
-Hamdy Abou El Anein
-
+    python3 -m unittest discover -s tests -v
