@@ -5,6 +5,7 @@
 """Guess a secret number from 1 to 20 using a lightweight Tkinter window."""
 from __future__ import annotations
 import secrets
+from pathlib import Path
 import tkinter as tk
 
 
@@ -20,7 +21,7 @@ class GuessApp(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
         self.title("Guess the Number · Hamdy Abou El Anein")
-        self.geometry("430x350")
+        self.win_image = tk.PhotoImage(file=str(Path(__file__).resolve().parent / "images/win-ui.png"))
         self.minsize(360, 320)
         self.configure(bg="#101827")
         self.message = tk.StringVar(value="Choose a number between 1 and 20.")
@@ -31,8 +32,9 @@ class GuessApp(tk.Tk):
         box.pack(fill="both", expand=True)
         tk.Label(box, text="GUESS THE NUMBER", bg="#101827", fg="#8bd6c1",
                  font=("DejaVu Sans", 14, "bold")).pack(pady=10)
-        tk.Label(box, text="1 — 20", bg="#101827", fg="#f2c879",
-                 font=("DejaVu Sans", 34, "bold")).pack(pady=10)
+        self.number = tk.Label(box, text="1 — 20", bg="#101827", fg="#f2c879",
+                 font=("DejaVu Sans", 34, "bold"))
+        self.number.pack(pady=10)
         self.entry = tk.Entry(box, textvariable=self.value, justify="center", width=9,
                               font=("DejaVu Sans", 18))
         self.entry.pack(pady=5)
@@ -49,6 +51,7 @@ class GuessApp(tk.Tk):
         self.reset()
 
     def reset(self) -> None:
+        self.number.configure(image="", text="1 — 20")
         self.secret = secrets.randbelow(20) + 1
         self.count = 0
         self.value.set("")
@@ -67,6 +70,7 @@ class GuessApp(tk.Tk):
         self.message.set(f"{result} · {self.count} attempt(s)")
         self.value.set("")
         if result == "Correct!":
+            self.number.configure(image=self.win_image)
             self.submit.config(state="disabled")
 
 
